@@ -1,0 +1,1048 @@
+/* ====== Global ====== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+/* Links */
+body.dark-mode a {
+  color: #60a5fa;
+}
+body.dark-mode a:hover {
+  color: #93c5fd;
+}
+/* === Dark Mode Toggle === */
+.dark-toggle {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.dark-toggle input {
+  display: none;
+}
+
+.toggle-label {
+  width: 50px;
+  height: 26px;
+  background: #d1d5db; /* abu terang default */
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-label::after {
+  content: "🌙";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: 0.3s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Saat aktif */
+.dark-toggle input:checked + .toggle-label {
+  background: #2563eb; /* biru elegan */
+}
+
+.dark-toggle input:checked + .toggle-label::after {
+  transform: translateX(24px);
+  content: "☀️";
+}
+
+/* ===== FULL DARK MODE ===== */
+
+/* ===== Smooth Transition for Dark Mode ===== */
+body,
+body * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body.dark-mode {
+  background: #111827;
+  color: #f9fafb;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+body.dark-mode nav {
+  background: linear-gradient(90deg, #1f2937, #111827);
+  color: #f9fafb;
+}
+body.dark-mode nav h1 {
+  color: #f9fafb;
+}
+body.dark-mode nav .menu a {
+  color: #f9fafb;
+}
+body.dark-mode nav .menu a:hover {
+  color: #60a5fa;
+}
+
+/* Hamburger */
+body.dark-mode .hamburger {
+  color: #f9fafb;
+}
+
+/* Hero Section */
+body.dark-mode .hero {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #f9fafb;
+}
+body.dark-mode .hero-text h1,
+body.dark-mode .hero-text p {
+  color: #f9fafb;
+}
+body.dark-mode .hero-text button {
+  background: #2563eb;
+  color: #fff;
+}
+body.dark-mode .hero-text button:hover {
+  background: #1e40af;
+}
+
+/* Feature Cards */
+body.dark-mode .feature-card {
+  background: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+body.dark-mode .feature-card h3,
+body.dark-mode .feature-card p {
+  color: #f9fafb;
+}
+
+/* Quiz Preview Section */
+body.dark-mode .quiz-preview {
+  background: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .quiz-preview h2,
+body.dark-mode .quiz-preview p {
+  color: #f9fafb;
+}
+body.dark-mode .quiz-preview button {
+  background: #2563eb;
+  color: #fff;
+}
+body.dark-mode .quiz-preview button:hover {
+  background: #1e40af;
+}
+
+/* Review Cards */
+body.dark-mode .review-card {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .review-card p {
+  color: #f9fafb;
+}
+body.dark-mode .review-user span {
+  color: #60a5fa;
+}
+
+/* Materi Cards */
+body.dark-mode #materi .card {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+body.dark-mode #materi h2 {
+  color: #60a5fa;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+body.dark-mode .materi-detail {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Quiz Card & Options */
+body.dark-mode .quiz-card {
+  background: #1f2937;
+  color: #f9fafb;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+body.dark-mode .quiz-question,
+body.dark-mode #question-text {
+  color: #f9fafb;
+}
+body.dark-mode .quiz-options .quiz-option {
+  background: #374151;
+  color: #f9fafb;
+  border: 2px solid transparent;
+}
+body.dark-mode .quiz-options .quiz-option.correct {
+  background: #16a34a;
+  color: #fff;
+  border-color: #22c55e;
+}
+body.dark-mode .quiz-options .quiz-option.incorrect {
+  background: #b91c1c;
+  color: #fff;
+  border-color: #ef4444;
+}
+
+/* Buttons */
+body.dark-mode .quiz-btn {
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  color: #fff;
+}
+body.dark-mode .quiz-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Section Divider */
+body.dark-mode .section-divider {
+  background: linear-gradient(to right, transparent, #2563eb, transparent);
+}
+
+/* === DARK MODE untuk Masukan & Saran === */
+body.dark-mode #masukan {
+  background: #111827; /* latar belakang gelap */
+  color: #f9fafb; /* teks putih */
+  border-radius: 12px;
+  padding: 20px;
+}
+
+body.dark-mode #masukan p,
+body.dark-mode #masukan label {
+  color: #f9fafb;
+}
+
+body.dark-mode #masukan h2 {
+  color: #60a5fa;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Input dan Textarea */
+body.dark-mode #masukan input,
+body.dark-mode #masukan textarea {
+  background: #1f2937;
+  color: #f9fafb;
+  border: 1px solid #374151;
+}
+
+/* Tombol */
+body.dark-mode #masukan button {
+  background: linear-gradient(90deg, #2563eb, #00f2fe);
+  color: #fff;
+}
+
+body.dark-mode #masukan button:hover {
+  background: linear-gradient(90deg, #00f2fe, #2563eb);
+}
+
+/* Footer */
+body.dark-mode footer {
+  background: #111827;
+  color: #f9fafb;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ====== Navbar ====== */
+nav {
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav .menu button {
+  background: white;
+  color: #2563eb;
+  border: none;
+  padding: 10px 16px;
+  margin-left: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav .menu button:hover {
+  background: #dbeafe;
+  transform: translateY(-2px);
+}
+
+/* Navbar saat scroll */
+nav.scrolled {
+  background: rgba(37, 99, 235, 0.85);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  height: 56px;
+}
+
+/* Logo */
+nav h1 {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: white;
+  user-select: none;
+  cursor: default;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease;
+}
+
+/* Menu */
+nav .menu {
+  display: flex;
+  gap: 32px;
+}
+
+nav .menu a {
+  position: relative;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Underline animasi */
+nav .menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: #93c5fd;
+  border-radius: 3px;
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover underline */
+nav .menu a:hover::after,
+nav .menu a.active::after {
+  width: 100%;
+}
+
+/* Hover warna */
+nav .menu a:hover {
+  color: #dbeafe;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+  user-select: none;
+  position: relative;
+  z-index: 1200;
+}
+
+.hamburger:hover {
+  transform: scale(1.2);
+  color: #93c5fd;
+}
+
+/* Hamburger animasi garis */
+.hamburger div {
+  width: 28px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger aktif (menu terbuka) */
+.hamburger.active div:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav .menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    background: rgba(37, 99, 235, 0.95);
+    backdrop-filter: saturate(180%) blur(12px);
+    height: calc(100vh - 64px);
+    width: 240px;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 24px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    box-shadow: -4px 0 20px rgba(37, 99, 235, 0.5);
+    border-radius: 0 0 0 12px;
+    z-index: 1100;
+  }
+
+  nav .menu.show {
+    transform: translateX(0);
+  }
+
+  nav .menu a {
+    font-size: 18px;
+    padding: 12px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+.home-img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.hero-text button {
+  background: white;
+  color: #2563eb;
+  border: none;
+  padding: 15px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text button:hover {
+  background: #dbeafe;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Divider */
+.section-divider {
+  border: none;
+  height: 2px;
+  width: 80%;
+  margin: 40px auto;
+  background: linear-gradient(to right, transparent, #2563eb, transparent);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center; /* memastikan card rata tengah */
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1100px; /* batasi biar tidak terlalu lebar */
+}
+
+.feature-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Quiz Preview Section */
+.quiz-preview {
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa, #e4ecf7);
+  padding: 40px 20px;
+  margin: 50px auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+}
+
+.quiz-preview h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+
+.quiz-preview p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.quiz-preview button {
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.quiz-preview button:hover {
+  background: #1e40af;
+  transform: scale(1.05);
+}
+
+/* Review Section */
+.reviews {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.reviews h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.review-list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  width: 280px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-card p {
+  font-style: italic;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+/* User Info */
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #2563eb;
+}
+
+.review-user span {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* ====== Container ====== */
+.container {
+  padding: 40px 60px;
+  animation: fadeIn 0.6s ease;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ====== Card ====== */
+/* Grid layout untuk materi */
+#materi .card {
+  display: inline-block;
+  width: 260px;
+  margin: 10px;
+  vertical-align: top;
+  text-align: center;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+/* Materi */
+#materi {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#materi .card:hover {
+  cursor: pointer;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin: 12px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.materi-detail {
+  background: #0077ff;
+  color: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Container utama --- */
+.quiz-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  position: relative;
+}
+
+/* --- Progress bar --- */
+.quiz-progress {
+  position: relative;
+  background: #eee;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+.quiz-progress-fill {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.quiz-progress-text {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* --- Kartu pertanyaan --- */
+.quiz-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.quiz-question {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* --- Opsi jawaban --- */
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.quiz-option {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.quiz-option:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+.quiz-option.correct {
+  background: #c8f7c5;
+  border-color: #27ae60;
+}
+.quiz-option.incorrect {
+  background: #f8d7da;
+  border-color: #e74c3c;
+}
+
+/* --- Hasil jawaban --- */
+.quiz-result {
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+.quiz-result.hidden {
+  display: none;
+}
+
+/* --- Tombol navigasi --- */
+.quiz-actions {
+  margin-top: 20px;
+}
+.quiz-btn {
+  padding: 12px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.quiz-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+.hidden {
+  display: none !important;
+}
+
+/* --- Confetti Canvas --- */
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* ====== Utility ====== */
+.hidden {
+  display: none;
+}
+
+/* Animasi muncul */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Feedback Form ====== */
+.feedback-form {
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1e3a8a;
+  font-size: 14px;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+.feedback-form button {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.feedback-form button:hover {
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Laptop (<=1200px) */
+@media (max-width: 1200px) {
+  .container {
+    padding: 30px 40px;
+  }
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  .review-list {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+/* Tablet (<=992px) */
+@media (max-width: 992px) {
+  .container {
+    padding: 25px 30px;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  .hero-img img {
+    max-width: 300px;
+  }
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+  }
+  #materi {
+    padding: 30px 15px;
+  }
+
+  #materi .card {
+    width: 200px;
+    margin: 8px;
+  }
+  .materi-detail {
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 8px;
+  }
+
+  .review-list {
+    justify-content: center;
+    max-width: 80%;
+    padding: 0 15px;
+  }
+  .quiz-preview {
+    margin: 30px auto;
+    padding: 30px 15px;
+  }
+}
+
+/* Mobile (<=768px) */
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 20px;
+  }
+  .hamburger {
+    margin-left: 10px;
+  }
+  nav h1 {
+    font-size: 20px;
+  }
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  .hero-text p {
+    font-size: 15px;
+  }
+  .review-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  #materi .card {
+    width: 150px;
+    margin: 6px;
+  }
+  #materi {
+    padding: 20px 10px;
+  }
+  .container {
+    padding: 20px;
+  }
+  .quiz-card h2 {
+    font-size: 18px;
+  }
+  #tentang {
+    font-size: 14px;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 4px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Mobile Kecil (<=480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  nav h1 {
+    font-size: 18px;
+  }
+  .hero {
+    padding: 40px 10px;
+  }
+  .hero-text h1 {
+    font-size: 20px;
+  }
+  .hero-text p {
+    font-size: 14px;
+  }
+  .hero-text button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  .quiz-preview h2 {
+    font-size: 20px;
+  }
+  .quiz-preview p {
+    font-size: 14px;
+  }
+  .review-card {
+    width: 100%;
+  }
+  footer p {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-form {
+    gap: 12px;
+  }
+  .feedback-form input,
+  .feedback-form textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .feedback-form button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-form {
+    width: 95%;
+  }
+  .feedback-form input,
+  .feedback-form textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .feedback-form button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}

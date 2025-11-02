@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edukasi Telekomunikasi Digital</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <h1>Edukasi Telekomunikasi</h1>
+      <div class="menu" id="menu">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('materi')">Materi</a>
+        <a href="#" onclick="showPage('quiz')">Quiz</a>
+        <a href="#" onclick="showPage('tentang')">Tentang</a>
+        <a href="#" onclick="showPage('masukan')">Kritik & Saran</a>
+      </div>
+
+      <!-- Toggle Dark Mode -->
+      <div class="dark-toggle">
+        <input type="checkbox" id="darkModeToggle" />
+        <label for="darkModeToggle" class="toggle-label"></label>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- Konten -->
+    <div class="container">
+      <!-- Home -->
+      <div id="home">
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-text">
+            <h1>Belajar Jaringan & Telekomunikasi</h1>
+            <p>Website interaktif untuk mahasiswa D4 Jaringan Telekomunikasi Digital. Pelajari konsep jaringan, ikuti kuis, dan kuasai dunia telekomunikasi!</p>
+            <button onclick="showPage('materi')">Mulai Belajar</button>
+          </div>
+          <div class="hero-img">
+            <img src="assets/img/gambar home.svg" alt="Network Illustration" />
+          </div>
+        </section>
+        <hr class="section-divider" />
+        <!-- Features Section -->
+        <section class="features">
+          <div class="feature-card">
+            <h3>📚 Materi</h3>
+            <p>Kumpulan modul pembelajaran seputar jaringan & telekomunikasi.</p>
+          </div>
+          <div class="feature-card">
+            <h3>📝 Kuis</h3>
+            <p>Uji pemahamanmu dengan soal-soal interaktif berbasis pilihan ganda.</p>
+          </div>
+          <div class="feature-card">
+            <h3>⚡ Simulasi</h3>
+            <p>Simulasi topologi jaringan & OSI Layer untuk memperdalam materi.</p>
+          </div>
+        </section>
+
+        <!-- Preview Quiz Section -->
+        <section class="quiz-preview">
+          <h2>🎯 Tes Pengetahuanmu!</h2>
+          <p>Yuk coba kuis interaktif tentang jaringan & telekomunikasi.</p>
+          <button onclick="showPage('quiz')">Mulai Quiz</button>
+        </section>
+
+        <hr class="section-divider" />
+        <!-- Review Section -->
+        <section class="reviews">
+          <h3>💬 Apa Kata Mereka?</h3>
+          <div class="review-list">
+            <div class="review-card">
+              <p>"Website ini membantu saya memahami dasar jaringan dengan cara yang mudah dan interaktif!"</p>
+              <div class="review-user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Andi" />
+                <span>Andi, Mahasiswa</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p>"Tampilannya simpel tapi informatif, cocok untuk belajar mandiri."</p>
+              <div class="review-user">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Siti" />
+                <span>Siti, Mahasiswi</span>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <p>"Kuisnya seru! Jadi lebih semangat belajar jaringan."</p>
+              <div class="review-user">
+                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Budi" />
+                <span>Budi, Pengguna</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Materi -->
+      <div id="materi" class="hidden">
+        <h2>Materi Pembelajaran</h2>
+        <div class="card">Pengenalan Jaringan</div>
+        <div class="card">OSI Layer</div>
+        <div class="card">Fiber Optik</div>
+        <div class="card">5G & Masa Depan</div>
+        <div class="card">IoT & Cloud Computing</div>
+      </div>
+
+      <!-- Pengenalan Jaringan -->
+      <div id="materi-pengenalan" class="materi-detail hidden">
+        <h3>Pengenalan Jaringan</h3>
+        <p>
+          Jaringan komputer adalah kumpulan komputer yang saling terhubung untuk berbagi data, informasi, dan sumber daya. Tujuan utama jaringan adalah memudahkan komunikasi dan kolaborasi antar perangkat. Jaringan dapat dibedakan
+          berdasarkan jangkauan, seperti LAN (Local Area Network), MAN (Metropolitan Area Network), dan WAN (Wide Area Network).
+        </p>
+        <ul>
+          <li><b>LAN:</b> Jaringan lokal dalam satu gedung atau area terbatas.</li>
+          <li><b>MAN:</b> Jaringan yang mencakup satu kota atau area metropolitan.</li>
+          <li><b>WAN:</b> Jaringan yang mencakup area geografis luas, seperti antar kota atau negara.</li>
+        </ul>
+      </div>
+
+      <!-- OSI Layer -->
+      <div id="materi-osi" class="materi-detail hidden">
+        <h3>OSI Layer</h3>
+        <p>OSI (Open Systems Interconnection) adalah model referensi yang membagi proses komunikasi jaringan menjadi 7 lapisan:</p>
+        <ol>
+          <li><b>Physical:</b> Media fisik transmisi data (kabel, sinyal listrik).</li>
+          <li><b>Data Link:</b> Pengalamatan fisik (MAC), deteksi dan koreksi error.</li>
+          <li><b>Network:</b> Pengalamatan logis (IP), routing antar jaringan.</li>
+          <li><b>Transport:</b> Pengiriman data end-to-end, segmentasi, dan kontrol error.</li>
+          <li><b>Session:</b> Manajemen sesi komunikasi antar aplikasi.</li>
+          <li><b>Presentation:</b> Translasi data, enkripsi, kompresi.</li>
+          <li><b>Application:</b> Layanan aplikasi jaringan (HTTP, SMTP, FTP).</li>
+        </ol>
+      </div>
+
+      <!-- Fiber Optik -->
+      <div id="materi-fiber" class="materi-detail hidden">
+        <h3>Fiber Optik</h3>
+        <p>Fiber optik adalah media transmisi data menggunakan cahaya melalui serat kaca atau plastik. Keunggulan fiber optik antara lain:</p>
+        <ul>
+          <li>Kecepatan transfer data sangat tinggi.</li>
+          <li>Tahan terhadap gangguan elektromagnetik.</li>
+          <li>Dapat menjangkau jarak jauh tanpa banyak kehilangan sinyal.</li>
+        </ul>
+        <p>Fiber optik banyak digunakan pada backbone jaringan internet dan komunikasi jarak jauh.</p>
+      </div>
+
+      <!-- 5G & Masa Depan -->
+      <div id="materi-5g" class="materi-detail hidden">
+        <h3>5G & Masa Depan</h3>
+        <p>
+          5G adalah generasi kelima teknologi jaringan seluler yang menawarkan kecepatan lebih tinggi, latensi rendah, dan koneksi masif untuk perangkat IoT. Dengan 5G, aplikasi seperti mobil otonom, augmented reality, dan smart city
+          menjadi lebih mungkin diwujudkan.
+        </p>
+        <ul>
+          <li>Kecepatan hingga 10 Gbps.</li>
+          <li>Latensi sangat rendah (&lt;1 ms).</li>
+          <li>Dukungan untuk jutaan perangkat per km².</li>
+        </ul>
+      </div>
+
+      <!-- IoT & Cloud Computing -->
+      <div id="materi-iot" class="materi-detail hidden">
+        <h3>IoT & Cloud Computing</h3>
+        <p><b>IoT (Internet of Things)</b> adalah konsep menghubungkan berbagai perangkat fisik ke internet agar dapat saling berkomunikasi dan bertukar data. Contohnya: smart home, wearable devices, dan sensor industri.</p>
+        <p>
+          <b>Cloud Computing</b> adalah layanan komputasi (penyimpanan, server, database, jaringan, software) yang disediakan melalui internet. Cloud memungkinkan akses data dan aplikasi dari mana saja tanpa harus memiliki infrastruktur
+          fisik sendiri.
+        </p>
+      </div>
+
+      <div id="quiz" class="quiz-page hidden">
+        <!-- Progress Bar -->
+        <div class="quiz-progress">
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+          <span id="quiz-progress-text" class="quiz-progress-text">0/3</span>
+        </div>
+
+        <!-- Kartu Pertanyaan -->
+        <div class="quiz-card">
+          <h2 id="question-text" class="quiz-question">Pertanyaan akan muncul di sini</h2>
+          <div id="options" class="quiz-options"></div>
+        </div>
+
+        <!-- Feedback -->
+        <p id="result" class="quiz-result hidden"></p>
+
+        <!-- Tombol Navigasi -->
+        <div class="quiz-actions">
+          <button id="next-btn" class="quiz-btn hidden" onclick="nextQuestion()">Soal Selanjutnya ➡️</button>
+          <button id="next-home" class="quiz-btn hidden" onclick="showPage('home')">🏠 Kembali ke Home</button>
+        </div>
+
+        <!-- Canvas untuk confetti -->
+        <canvas id="confetti" class="confetti"></canvas>
+      </div>
+
+      <!-- Tentang -->
+      <div id="tentang" class="hidden">
+        <p>Website ini dibuat sebagai media pembelajaran mahasiswa Politeknik Negeri Malang, Program Studi D4 Jaringan Telekomunikasi Digital. Tujuannya membantu memahami dunia jaringan dan telekomunikasi.</p>
+      </div>
+
+      <!-- Masukan & Saran -->
+      <div id="masukan" class="hidden">
+        <h2>Masukan & Saran</h2>
+        <p>Kami sangat menghargai pendapat Anda untuk meningkatkan kualitas website ini.</p>
+
+        <form action="https://api.web3forms.com/submit" method="post" class="feedback-form">
+          <input type="hidden" name="access_key" value="98c88be8-d3d5-4389-9759-62e800f9896c" />
+          <input type="hidden" name="subject" value="New Submission from Edukasi Telekomunikasi" />
+          <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+          <label for="name">Nama:</label>
+          <input type="text" id="name" name="Name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="Email" required />
+
+          <label for="message">Pesan:</label>
+          <textarea id="message" name="Message" rows="5" required></textarea>
+          <button type="submit">Kirim</button>
+        </form>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Edukasi Telekomunikasi | Dibuat oleh David Guti Firmansyah - D4 Jaringan Telekomunikasi Digital</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
